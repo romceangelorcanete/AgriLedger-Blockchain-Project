@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 contract AgriLedger {
 
     // ─── Enums ───────────────────────────────────────────────
-    enum Role { None, Farmer, Trader, Transporter, Vendor, Admin }
+    enum Role { None, Farmer, Trader, Transporter, Vendor, Admin } // role ; 1-FARMER, 2-TRADER, 3-TRANSPORTER, 4-VENDOR
     enum ShipmentStatus { Pending, InTransit, Delivered }
     enum ProductStatus { AtFarm, WithTrader, InTransit, Delivered }
 
