@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 contract AgriLedger {
 
     // ─── Enums ───────────────────────────────────────────────
-    enum Role { None, Farmer, Trader, Transporter, Vendor, Admin } // role ; 1-FARMER, 2-TRADER, 3-TRANSPORTER, 4-VENDOR
+    enum Role { None, Farmer, Trader, Transporter, Vendor, Admin }  //role 1-Farmer, 2-Trader, 3-Transporter, 4-Vendor 0-None
     enum ShipmentStatus { Pending, InTransit, Delivered }
     enum ProductStatus { AtFarm, WithTrader, InTransit, Delivered }
 
@@ -26,7 +26,7 @@ contract AgriLedger {
         address currentOwner;
         bool    isRegistered;
         string  qrCodeHash;
-        ProductStatus status;   // FIX 4: track product stage - updated 
+        ProductStatus status;   // FIX 4: track product stage
     }
 
     struct Transaction {
@@ -134,7 +134,7 @@ contract AgriLedger {
             currentOwner: msg.sender,
             isRegistered: true,
             qrCodeHash:   _qrCodeHash,
-            status:       ProductStatus.AtFarm   // FIX 4: set initial status - updated 
+            status:       ProductStatus.AtFarm   // FIX 4: set initial status
         });
 
         emit ProductAdded(pid, _name, msg.sender);
@@ -160,7 +160,7 @@ contract AgriLedger {
 
         _createTransaction(_productId, p.currentOwner, msg.sender, _details);
         p.currentOwner = msg.sender;
-        p.status = ProductStatus.WithTrader;   // FIX 4: update status - updated 
+        p.status = ProductStatus.WithTrader;   // FIX 4: update status
     }
 
     // ─── Transporter Functions ────────────────────────────────
@@ -194,7 +194,7 @@ contract AgriLedger {
         });
 
         productHistory[_productId].push(tid);
-        p.status = ProductStatus.InTransit;   // FIX 4: update status - updated 
+        p.status = ProductStatus.InTransit;   // FIX 4: update status
         emit ShipmentLogged(tid, _productId, msg.sender);
     }
 
@@ -218,7 +218,7 @@ contract AgriLedger {
         t.isVerified = true;
 
         products[t.productId].currentOwner = msg.sender;
-        products[t.productId].status = ProductStatus.Delivered;   // FIX 4: update status - updated 
+        products[t.productId].status = ProductStatus.Delivered;   // FIX 4: update status
 
         emit DeliveryConfirmed(_txId, t.productId, msg.sender);
     }
@@ -233,7 +233,7 @@ contract AgriLedger {
         return products[_productId];
     }
 
-    // FIX 4: added getProductStatus() for easy stage checking - updated 
+    // FIX 4: added getProductStatus() for easy stage checking
     function getProductStatus(uint256 _productId)
         external view
         productExists(_productId)

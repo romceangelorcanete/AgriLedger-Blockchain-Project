@@ -749,11 +749,11 @@
 	},
 	"sources": {
 		"AgriLeger.sol": {
-			"keccak256": "0x6821e3b1a766349948a7b7b4b56bbe0244920d146450d4935b34a1c90b8127a6",
+			"keccak256": "0xb173ec88961c65b83d2e87f58542731cebb9b5f5be29de84c1a8f998e5b7a10e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bdf475ebd5d930139af94e547f09a59f82742c69c10e5e9b6c4ed4398d2fba4e",
-				"dweb:/ipfs/QmW2gKCiM9UYkAT7Hh6ekAARhkB4PSwpJzFqhXxYXnn1NG"
+				"bzz-raw://9039c8822c5ebeca7c109e8f5d377a80783e72010a499c205a018a0ee1ec28f7",
+				"dweb:/ipfs/QmcAZwMeiQoyjaVZJsmufFaXFKY1DJ5vyMHLzNNKGYkfQi"
 			]
 		}
 	},
